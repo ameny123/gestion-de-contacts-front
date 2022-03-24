@@ -6,7 +6,7 @@ const Home = () => {
   return (
    <nav className="NavBar-Wrapper">
      <div>
-       <h3 className="NavBar-Title">My App</h3>
+       <h3 className="NavBar-Title">Gestion de contacts</h3>
      </div>
      <div className="NavBar-Links">
       <Link to="/" className="NavBar-Link">Home</Link>

@@ -9,8 +9,8 @@ const Contact = ({ _id, firstName, lastName, phoneNumber, email, removeContact }
     <tr>
       <td>{firstName}</td>
       <td>{lastName}</td>
+      <td><a href={"mailto:" + email}>{email}</a></td>
       <td>{phoneNumber}</td>
-      <td>{email}</td>
       <td>
         <button onClick={() => removeContact(_id)} className="Action-Button fa fa-trash"></button>
         <Link to={{ pathname: '/edit', search: _id }}>
