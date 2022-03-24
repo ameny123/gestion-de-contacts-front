@@ -3,7 +3,7 @@ import './Contact.css';
 import { Link } from 'react-router-dom';
 
 
-const Contact = ({ _id, firstName, lastName, phoneNumber, email, removeContact }) => {
+const Contact = ({ _id, firstName, lastName, phoneNumber, email, adresse, creationDate, fonction, CA, removeContact }) => {
 
   return (
     <tr>
@@ -11,6 +11,11 @@ const Contact = ({ _id, firstName, lastName, phoneNumber, email, removeContact }
       <td>{lastName}</td>
       <td><a href={"mailto:" + email}>{email}</a></td>
       <td>{phoneNumber}</td>
+      <td>{adresse}</td>
+      <td>{creationDate}</td>
+      <td>{fonction}</td>
+      <td>{CA}</td>
+      
       <td>
         <button onClick={() => removeContact(_id)} className="Action-Button fa fa-trash"></button>
         <Link to={{ pathname: '/edit', search: _id }}>

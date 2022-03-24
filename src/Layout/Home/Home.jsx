@@ -43,6 +43,8 @@ class Home extends Component {
       return element.firstName.toLowerCase().includes(username.toLowerCase())
         || element.lastName.toLowerCase().includes(username.toLowerCase())
         || element.email.toLowerCase().includes(username.toLowerCase())
+        || element.adresse.toLowerCase().includes(username.toLowerCase())
+        || element.fonction.toLowerCase().includes(username.toLowerCase())
     }
       // ({idS}) => idS.toLowerCase().includes(username.toLowerCase()), ({name}) => name.toLowerCase().includes(username.toLowerCase())
     );
@@ -79,12 +81,16 @@ class Home extends Component {
 
               <thead>
                 <tr>
-                
+
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Email</th>
                   <th>Phone number</th>
-                  <th>Action</th>
+                  <th>Adresse</th>
+                  <th>Creation date</th>
+                  <th>Function</th>
+                  <th>CA</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>{contacts}</tbody>

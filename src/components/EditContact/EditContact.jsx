@@ -11,6 +11,10 @@ class EditContact extends Component {
     lastName: "",
     phoneNumber: "",
     email: "",
+    adresse: "",
+    creationDate: "",
+    fonction: "",
+    CA: "",
     response: ""
   };
 
@@ -23,9 +27,9 @@ class EditContact extends Component {
       console.log('id EDIT', idContact);
       const updateContact = await axios(`http://localhost:5000/api/contacts/${idContact}`);
       console.log('updateContact', updateContact);
-      const { _id, firstName, lastName, phoneNumber, email } = updateContact.data.contact;
+      const { _id, firstName, lastName, phoneNumber, email, adresse, creationDate, fonction, CA } = updateContact.data.contact;
       console.log('response', updateContact.data.contact);
-      this.setState({ _id, firstName, lastName, phoneNumber, email });
+      this.setState({ _id, firstName, lastName, phoneNumber, email, adresse, creationDate, fonction, CA });
     } catch (err) {
       this.setState({ response: "Contact not found!" })
     }
@@ -39,6 +43,10 @@ class EditContact extends Component {
         lastName: this.refs.lastName.value,
         phoneNumber: this.refs.phoneNumber.value,
         email: this.refs.email.value,
+        adresse: this.refs.adresse.value,
+        creationDate: this.refs.creationDate.value,
+        fonction: this.refs.fonction.value,
+        CA: this.refs.CA.value,
       });
       toast(contact.data.message, { type: toast.TYPE.INFO, autoClose: 3000 });
 
@@ -80,7 +88,7 @@ class EditContact extends Component {
 
           <label htmlFor="phoneNumber">Phone number: </label>
           <input
-            type="text"
+            type="number"
             name="phoneNumber"
             ref="phoneNumber"
             className="Edit-Contact-Input"
@@ -90,9 +98,9 @@ class EditContact extends Component {
             id="phoneNumber"
           />
 
-          <label htmlFor="email">email: </label>
+          <label htmlFor="email">Email: </label>
           <input
-            type="text"
+            type="email"
             name="email"
             ref="email"
             className="Edit-Contact-Input"
@@ -102,7 +110,53 @@ class EditContact extends Component {
             id="email"
           />
 
-        
+          <label htmlFor="adresse">Adresse: </label>
+          <input
+            type="text"
+            name="adresse"
+            ref="adresse"
+            className="Edit-Contact-Input"
+            required
+            onChange={this.onChangeHandler}
+            id="adresse"
+            value={this.state.adresse}
+          />
+
+          <label htmlFor="creationDate">Creation date: </label>
+          <input
+            type="date"
+            name="creationDate"
+            ref="creationDate"
+            className="Edit-Contact-Input"
+            required
+            onChange={this.onChangeHandler}
+            id="creationDate"
+            value={this.state.creationDate}
+          />
+
+          <label htmlFor="fonction">Function: </label>
+          <input
+            type="text"
+            name="fonction"
+            ref="fonction"
+            className="Edit-Contact-Input"
+            required
+            onChange={this.onChangeHandler}
+            id="fonction"
+            value={this.state.fonction}
+          />
+
+          <label htmlFor="CA">CA: </label>
+          <input
+            type="number"
+            name="CA"
+            ref="CA"
+            className="Edit-Contact-Input"
+            required
+            onChange={this.onChangeHandler}
+            id="CA"
+            value={this.state.CA}
+          />
           <button type="submit" className="Edit-Contact-Submit fa fa-pencil"></button>
         </form>
         <ToastContainer />

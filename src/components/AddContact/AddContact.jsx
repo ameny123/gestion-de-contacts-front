@@ -11,6 +11,10 @@ class AddContact extends Component {
     lastName: "",
     phoneNumber: "",
     email: "",
+    adresse: "",
+    creationDate: "",
+    fonction: "",
+    CA: "",
     response: ""
   };
 
@@ -25,6 +29,10 @@ class AddContact extends Component {
         lastName: this.refs.lastName.value,
         phoneNumber: this.refs.phoneNumber.value,
         email: this.refs.email.value,
+        adresse: this.refs.adresse.value,
+        creationDate: this.refs.creationDate.value,
+        fonction: this.refs.fonction.value,
+        CA: this.refs.CA.value,
       }
       );
       console.log('newContact', newContact);
@@ -62,7 +70,7 @@ class AddContact extends Component {
 
           <label htmlFor="phoneNumber">Phone number: </label>
           <input
-            type="text"
+            type="number"
             name="phoneNumber"
             ref="phoneNumber"
             className="Add-Contact-Input"
@@ -70,9 +78,9 @@ class AddContact extends Component {
             id="phoneNumber"
           />
 
-          <label htmlFor="email">email: </label>
+          <label htmlFor="email">Email: </label>
           <input
-            type="text"
+            type="email"
             name="email"
             ref="email"
             className="Add-Contact-Input"
@@ -80,18 +88,45 @@ class AddContact extends Component {
             id="email"
           />
 
-          {/* 
-          <label htmlFor="skills">Skills: </label>
+          <label htmlFor="adresse">Adresse: </label>
           <input
             type="text"
-            placeholder="Skills sepertaed by ;"
-            name="skills"
-            ref="skills"
+            name="adresse"
+            ref="adresse"
             className="Add-Contact-Input"
             required
-            id="skills"
-          /> */}
+            id="adresse"
+          />
 
+          <label htmlFor="creationDate">Creation date: </label>
+          <input
+            type="date"
+            name="creationDate"
+            ref="creationDate"
+            className="Add-Contact-Input"
+            required
+            id="creationDate"
+          />
+
+          <label htmlFor="fonction">Function: </label>
+          <input
+            type="text"
+            name="fonction"
+            ref="fonction"
+            className="Add-Contact-Input"
+            required
+            id="fonction"
+          />
+
+          <label htmlFor="CA">CA: </label>
+          <input
+            type="number"
+            name="CA"
+            ref="CA"
+            className="Add-Contact-Input"
+            required
+            id="CA"
+          />
 
           <button type="submit" className="Add-Contact-Submit fa fa-plus"></button>
           <button type="reset" className="Add-Contact-Reset fa fa-refresh"></button>
